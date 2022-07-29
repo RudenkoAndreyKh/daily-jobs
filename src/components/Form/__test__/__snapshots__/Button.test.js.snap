@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Button click 1`] = `
-<button
-  data-testid="button"
->
-  Gag
-</button>
-`;

@@ -10,10 +10,11 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: "[name].[hash].js"
+        filename: "[name].[hash].js",
     },
     devServer: {
-        port: 3000
+        port: 3000,
+        historyApiFallback: true,
     },
     plugins: [
         new HtmlWebpackPlugin({template: "./src/index.html"}),
