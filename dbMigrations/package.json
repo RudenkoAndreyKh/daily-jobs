@@ -1,0 +1,15 @@
+{
+  "name": "daily-jobs-database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "migrate": "node-pg-migrate --database-url-var=DB_CONNECTION_STRING"
+  },
+  "author": "Andrey",
+  "license": "ISC",
+  "dependencies": {
+    "node-pg-migrate": "^6.2.2",
+    "pg": "^8.7.3"
+  }
+}
