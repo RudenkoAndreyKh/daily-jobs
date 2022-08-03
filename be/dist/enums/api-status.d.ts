@@ -1,9 +1,0 @@
-export declare enum ApiStatus {
-    OK = "OK",
-    ERROR = "ERROR",
-    EMPTY_NAME = "EMPTY NAME",
-    EMPTY_SURNAME = "EMPTY SURNAME",
-    EMPTY_FULLNAME = "EMPTY FULLNAME",
-    EMPTY_LOGIN = "EMPTY_LOGIN",
-    EMPTY_PASSWORD = "EMPTY_PASSWORD"
-}
