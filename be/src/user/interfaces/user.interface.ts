@@ -13,6 +13,7 @@ interface CreatedUser {
     surname: string;
     fullName: string;
     birthDate: string;
+    phoneNumber: string;
 }
 
 export {

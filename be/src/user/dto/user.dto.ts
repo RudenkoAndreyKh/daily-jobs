@@ -1,6 +1,14 @@
-import { IsDate, IsNotEmpty, IsString, MinLength } from "class-validator";
+import {
+    IsCurrency,
+    IsDate,
+    isNotEmpty,
+    IsNotEmpty,
+    IsNumber,
+    IsPhoneNumber,
+    IsString,
+    MinLength
+} from "class-validator";
 import { ApiStatus } from "src/enums/api-status";
-
 
 class CreateUserDto {
     @IsNotEmpty({
@@ -31,6 +39,27 @@ class CreateUserDto {
     @MinLength(8)
     @IsString()
     password: string;
+    @IsNotEmpty( {
+        message: ApiStatus.EMPTY_PHONE_NUMBER,
+    })
+    @IsString()
+    @IsPhoneNumber()
+    phoneNumber: string;
+    @IsNotEmpty( {
+        message: ApiStatus.EMPTY_COUNTRY_CODE,
+    })
+    @IsString()
+    countryCode: string;
+    @IsNotEmpty({
+        message: ApiStatus.EMPTY_LANGUAGE_CODE,
+    })
+    @IsString()
+    languageCode: string;
+    @IsNotEmpty({
+        message: ApiStatus.EMPTY_CURRENCY_CODE,
+    })
+    @IsCurrency()
+    currencyCode: string;
 };
 
 class UserDto {
@@ -39,6 +68,7 @@ class UserDto {
     surname: string;
     fullName: string;
     birthDate: string;
+    phoneNumber: string;
 }
 
 export {
