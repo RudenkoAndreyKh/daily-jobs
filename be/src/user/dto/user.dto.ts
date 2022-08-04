@@ -10,7 +10,6 @@ import {
 } from "class-validator";
 import { ApiStatus } from "src/enums/api-status";
 
-
 class CreateUserDto {
     @IsNotEmpty({
         message: ApiStatus.EMPTY_NAME,
@@ -62,7 +61,6 @@ class CreateUserDto {
     @IsCurrency()
     currencyCode: string;
 };
-
 
 class UserDto {
     id: number;
