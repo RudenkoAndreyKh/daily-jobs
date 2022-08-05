@@ -69,6 +69,9 @@ class UserDto {
     fullName: string;
     birthDate: string;
     phoneNumber: string;
+    countryCode: string;
+    currencyCode: string;
+    languageCode: string;
 }
 
 export {
