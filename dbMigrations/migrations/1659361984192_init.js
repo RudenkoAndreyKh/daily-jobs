@@ -45,6 +45,19 @@ exports.up = pgm => {
         INSERT INTO countries (code, name, default_language_code, default_currency_code, phone_prefix) VALUES ('uk', 'United Kingdomp', 'en', 'GBP', '+44'); 
         INSERT INTO countries (code, name, default_language_code, default_currency_code, phone_prefix) VALUES ('ua', 'Ukraine', 'ua', 'UAH', '+380'); 
         INSERT INTO countries (code, name, default_language_code, default_currency_code, phone_prefix) VALUES ('us', 'United States', 'en', 'USD', '+1'); 
+
+        CREATE SEQUENCE IF NOT EXISTS "public"."workers_id_seq";
+        CREATE TABLE "public"."workers" (
+            "id" int4 NOT NULL DEFAULT nextval('public.workers_id_seq'::regclass),
+            "name" text NOT NULL,
+            "surname" text NOT NULL,
+            "full_name" text NOT NULL,
+            "login" text NOT NULL UNIQUE,
+            "password" text NOT NULL,
+            "birth_date" timestamptz NOT NULL,
+            "created_at" timestamptz NOT NULL DEFAULT now(),
+            PRIMARY KEY("id")
+        )
     `)
 };
 
