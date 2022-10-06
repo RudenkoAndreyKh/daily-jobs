@@ -10,7 +10,11 @@ exports.up = pgm => {
             "value" integer NOT NULL DEFAULT 0,
             "ratings_number" SERIAL NOT NULL,
             "user_id" integer NOT NULL,
-            PRIMARY KEY("id")
+            
+            PRIMARY KEY("id"),
+
+            FOREIGN KEY(user_id) 
+	        REFERENCES users(id)
         );
     `)
 };
