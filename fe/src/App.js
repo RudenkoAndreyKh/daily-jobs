@@ -9,9 +9,6 @@ const App = () => {
             <Header />
             <Routes>
                 <Route exact path="/" element={<Landing />} />
-                {
-                    new Array(10).fill(0)
-                }
             </Routes>
         </>
     );

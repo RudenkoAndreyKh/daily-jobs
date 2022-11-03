@@ -50,6 +50,7 @@ Heading.propTypes = {
     level: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
     size: PropTypes.number,
+    color: PropTypes.string,
 
     caps: PropTypes.bool,
     weight: PropTypes.number,

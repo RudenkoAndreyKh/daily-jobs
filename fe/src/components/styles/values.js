@@ -40,7 +40,7 @@ const fontWeightValues = [
     700,
     800,
     900,
-]
+];
 
 export {
     dimensions,
