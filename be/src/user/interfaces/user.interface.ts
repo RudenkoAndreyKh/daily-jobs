@@ -8,6 +8,7 @@ interface User {
     countryCode: string;
     currencyCode: string;
     languageCode: string;
+    jwt?: string;
 }
 
 export {
