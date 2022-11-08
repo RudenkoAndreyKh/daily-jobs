@@ -39,13 +39,13 @@ class CreateUserDto {
     @MinLength(8)
     @IsString()
     password: string;
-    @IsNotEmpty( {
+    @IsNotEmpty({
         message: ApiStatus.EMPTY_PHONE_NUMBER,
     })
     @IsString()
     @IsPhoneNumber()
     phoneNumber: string;
-    @IsNotEmpty( {
+    @IsNotEmpty({
         message: ApiStatus.EMPTY_COUNTRY_CODE,
     })
     @IsString()
@@ -72,9 +72,25 @@ class UserDto {
     countryCode: string;
     currencyCode: string;
     languageCode: string;
-}
+    jwt?: string;
+};
+
+class LoginDataDto {
+    @IsNotEmpty({
+        message: ApiStatus.EMPTY_LOGIN,
+    })
+    @IsString()
+    login: string;
+
+    @IsNotEmpty({
+        message: ApiStatus.EMPTY_PASSWORD,
+    })
+    @IsString()
+    password: string;
+};
 
 export {
     CreateUserDto,
-    UserDto
-}
+    UserDto,
+    LoginDataDto,
+};

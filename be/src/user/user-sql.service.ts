@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import db from "src/db";
 import convertSqlResultToReturn from "src/utils/convert-object-keys";
-import { CreateUserDto } from "./dto/user.dto";
+import { CreateUserDto, LoginDataDto } from "./dto/user.dto";
 import { User } from './interfaces/user.interface';
 
 @Injectable()
@@ -14,12 +14,31 @@ export class UserSqlService {
             `;
 
         const result = await db.oneOrNone(query, user);
-        result.birth_date = String(result.birth_date);
-
-        if (!result || !result['id']) {
+        
+        if (!result) {
             return null;
         }
-
+        
+        result.birth_date = String(result.birth_date);
+        
         return convertSqlResultToReturn(result);
     };
+
+    async loginUser(user: LoginDataDto): Promise<User> {
+        const query: string = `
+            SELECT id, name, surname, full_name, birth_date, phone_number, country_code, currency_code, language_code
+            FROM users
+            WHERE users.login = $<login>
+        `;
+
+        const result = await db.oneOrNone(query, user);
+        
+        if(!result) {
+            return null;
+        }
+        
+        result.birth_date = String(result.birth_date);
+
+        return convertSqlResultToReturn(result);
+    }
 }
